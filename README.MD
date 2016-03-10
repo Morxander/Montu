@@ -8,9 +8,8 @@ Just make sure you have installed :
  - sqlite3
  - python-sqlite
  
-
     sudo apt-get install sqlite3 python-sqlite
-    
+
 Then clone this repo on a user which have access to your website files :
 
     git clone git@github.com:Morxander/Montu.git
