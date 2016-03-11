@@ -1,6 +1,6 @@
 # Montu
 
-Montu is a tool to monitor your website files, Basically it saves the md5 of the files in a SQLite Database and you set a cronjob to start the checker whenever you want.
+Montu is a tool to monitor your website files, Basically it saves the sha1sum of the files in a SQLite Database and you set a cronjob to start the checker whenever you want.
 Montu was a falcon-god of war in Ancient Egyptian religion, And Montu will fight the war for you against any attackers.
 
 ### Requirements

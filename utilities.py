@@ -13,7 +13,7 @@ class bcolors:
 class hashing:
   @staticmethod
   def hashfile(file_path):
-    hash = os.popen("md5sum " + file_path + " | cut -d' ' -f1").read().replace('\n','')
+    hash = os.popen("sha1sum " + file_path + " | cut -d' ' -f1").read().replace('\n','')
     return hash
 
 class savingToDb:
