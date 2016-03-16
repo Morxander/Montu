@@ -27,9 +27,9 @@ Then just run it and follow the instructions :
 
 ### ToDo:
 
-* Asking for an email during the installation
-* Checking for files changes
-* Checking for the new files
+* ~~Asking for an email during the installation~~ ( Done )
+* ~~Checking for files changes~~ ( Done )
+* ~~Checking for the new files~~ ( Done )
 * Allow to manually update the files hashes in the Database
 * Sending an Email Report
 

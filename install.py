@@ -1,9 +1,7 @@
 #!/usr/bin/python
-
 import sqlite3
 import os
 from utilities import bcolors
-from utilities import hashing
 from utilities import savingToDb
 
 # Printing Logo
@@ -35,11 +33,13 @@ conn.execute('''CREATE TABLE FILES
        UPDATED_AT          TEXT);''')
 print bcolors.OKGREEN + "Created files table successfully"
 # Let's start the magic
+email = raw_input(bcolors.ENDC + "Please enter your email to send the report : ")
 full_path = raw_input(bcolors.ENDC + "Please enter the full path to monitor : ")
 while not os.path.exists(full_path) or not os.path.isdir(full_path):
-  full_path = raw_input(bcolors.FAIL + "Please enter valid full path to monitor : ")
+    full_path = raw_input(bcolors.FAIL + "Please enter valid full path to monitor : ")
 # Saving the path to the settings table
 conn.execute("INSERT INTO settings (OPTION_KEY,OPTION_VALUE) VALUES('full_path', '"+full_path+"');");
+conn.execute("INSERT INTO settings (OPTION_KEY,OPTION_VALUE) VALUES('email', '"+email+"');");
 conn.commit()
 print bcolors.OKGREEN + "Path saved successfully"
 # Saving the files list
