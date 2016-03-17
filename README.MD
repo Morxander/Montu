@@ -24,14 +24,21 @@ Make sure that `install.py` has execution permission :
 Then just run it and follow the instructions :
 
     ./install.py
+To run the check ( manually or with cron job) :
+
+    ./check.py
+To update the database manually ( in case of you changed or added files) :
+
+    ./check.py --update
 
 ### ToDo:
 
 * ~~Asking for an email during the installation~~ ( Done )
 * ~~Checking for files changes~~ ( Done )
 * ~~Checking for the new files~~ ( Done )
-* Allow to manually update the files hashes in the Database
+* ~~Allow to manually update the files hashes in the Database~~ ( Done )
 * Sending an Email Report
+* Allow to ignore extensions
 
 ### Version
 0.1

@@ -1,6 +1,7 @@
 #!/usr/bin/python
 import sqlite3
 import os
+import sys
 from utilities import bcolors
 from utilities import savingToDb
 
@@ -22,6 +23,11 @@ print bcolors.HEADER + """
 full_path = ""
 changed_files = []
 new_files = []
+# Check for --update argument
+args = str(sys.argv)
+update = False
+if '--update' in args:
+    update = True
 # connection to the database
 conn = sqlite3.connect("files.db")
 print bcolors.OKGREEN + "Opened database successfully"
@@ -36,6 +42,10 @@ for file_path in old_files:
     if hash != file_path[1]:
         print bcolors.WARNING + file_path[0] + " File Changed"
         changed_files.append(file_path[0])
+        if update:
+           conn.execute("UPDATE FILES SET FILE_HASH='"+hash+"' WHERE FILE_PATH='" + file_path[0] + "'") 
+           conn.commit()
+           print bcolors.WARNING + file_path[0] + " File Hash Updated"
     else:
         print bcolors.ENDC + file_path[0] + " Still Unchanged"
 # Check for new files
@@ -51,6 +61,11 @@ def getFileAndDirs(full_path):
             if len(is_exist.fetchall()) == 0:
                 new_files.append(full_path + file_name)
                 print bcolors.FAIL + full_path + file_name + " New File"
+                if update:
+                    hash = os.popen("sha1sum " + full_path + file_name + " | cut -d' ' -f1").read().replace('\n','')
+                    conn.execute("INSERT INTO FILES (FILE_PATH,FILE_HASH) values('" + full_path + file_name + "','"+hash+"');")
+                    conn.commit()
+                    print bcolors.WARNING + full_path + file_name + " New File Inserted"
     for dir_name in list_of_dirs:
         if os.path.isdir(dir_name):
             getFileAndDirs(full_path + dir_name)
