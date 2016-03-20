@@ -8,8 +8,11 @@ Just make sure you have installed :
 * sqlite3
 * python-sqlite
  
- 
-    sudo apt-get install sqlite3 python-sqlite
+####Ubuntu : 
+    sudo apt-get install sqlite3 python-sqlite mailutils
+
+####Redhat/CentOs : 
+    sudo yum install sqlite3 python-sqlite2 mailx
 
 Then clone this repo on a user which have access to your website files :
 
@@ -37,7 +40,7 @@ To update the database manually ( in case of you changed or added files) :
 * ~~Checking for files changes~~ ( Done )
 * ~~Checking for the new files~~ ( Done )
 * ~~Allow to manually update the files hashes in the Database~~ ( Done )
-* Sending an Email Report
+* ~~Sending an Email Report~~ ( Done )
 * Allow to ignore extensions
 
 ### Version

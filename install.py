@@ -34,12 +34,14 @@ conn.execute('''CREATE TABLE FILES
 print bcolors.OKGREEN + "Created files table successfully"
 # Let's start the magic
 email = raw_input(bcolors.ENDC + "Please enter your email to send the report : ")
+email_subject = raw_input(bcolors.ENDC + "Please enter the email report subject : ")
 full_path = raw_input(bcolors.ENDC + "Please enter the full path to monitor : ")
 while not os.path.exists(full_path) or not os.path.isdir(full_path):
     full_path = raw_input(bcolors.FAIL + "Please enter valid full path to monitor : ")
 # Saving the path to the settings table
 conn.execute("INSERT INTO settings (OPTION_KEY,OPTION_VALUE) VALUES('full_path', '"+full_path+"');");
 conn.execute("INSERT INTO settings (OPTION_KEY,OPTION_VALUE) VALUES('email', '"+email+"');");
+conn.execute("INSERT INTO settings (OPTION_KEY,OPTION_VALUE) VALUES('email_subject', '"+email_subject+"');");
 conn.commit()
 print bcolors.OKGREEN + "Path saved successfully"
 # Saving the files list
