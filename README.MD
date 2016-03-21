@@ -11,7 +11,7 @@ Just make sure you have installed :
 ####Ubuntu : 
     sudo apt-get install sqlite3 python-sqlite mailutils
 
-####Redhat/CentOs : 
+####RedHat/CentOS : 
     sudo yum install sqlite3 python-sqlite2 mailx
 
 Then clone this repo on a user which have access to your website files :
@@ -21,9 +21,9 @@ Then clone this repo on a user which have access to your website files :
 Navigate to the project dir :
     
     cd Montu
-Make sure that `install.py` has execution permission :
+Make sure that `install.py` and `check.py` have execution permission :
     
-    chmod 755 install.py
+    chmod 755 install.py check.py
 Then just run it and follow the instructions :
 
     ./install.py
